@@ -18,7 +18,6 @@ import java.util.Scanner;
 public class UI {
 
     // https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
-    //CORES DO TEXTOS
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -29,7 +28,6 @@ public class UI {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
-    // TEXTOS DO FUNDO
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
@@ -52,12 +50,10 @@ public class UI {
             int row = Integer.parseInt(s.substring(1));
             return new ChessPosition(column, row);
         } catch (RuntimeException e) {
-            throw new InputMismatchException("Error reading ChessPosition. Valid values are from a1 to h8");
+            throw new InputMismatchException("Error reading ChessPosition. Valid values are from a1 to h8.");
         }
-
     }
 
-    //IMPRIMINDO TABULEIRO
     public static void printBoard(ChessPiece[][] pieces) {
         for (int i = 0; i < pieces.length; i++) {
             System.out.print((8 - i) + " ");
@@ -66,11 +62,9 @@ public class UI {
             }
             System.out.println();
         }
-        System.out.println("   a  b  c  d  e  f  g  h");
+        System.out.println("  a b c d e f g h");
     }
-    
-    
-    //MOVIMENTOS POSSIVEIS
+
     public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
         for (int i = 0; i < pieces.length; i++) {
             System.out.print((8 - i) + " ");
@@ -79,23 +73,22 @@ public class UI {
             }
             System.out.println();
         }
-        System.out.println("   a  b  c  d  e  f  g  h");
+        System.out.println("  a b c d e f g h");
     }
 
     private static void printPiece(ChessPiece piece, boolean background) {
         if (background) {
             System.out.print(ANSI_GREEN_BACKGROUND);
         }
-        
         if (piece == null) {
-            System.out.print(" - " + ANSI_RESET);
+            System.out.print("-" + ANSI_RESET);
         } else {
             if (piece.getColor() == Color.WHITE) {
-                System.out.print(ANSI_WHITE + " " + piece + " " + ANSI_RESET);
+                System.out.print(ANSI_WHITE + piece + ANSI_RESET);
             } else {
-                System.out.print(ANSI_YELLOW + " " + piece + " " + ANSI_RESET);
+                System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
             }
         }
-
+        System.out.print(" ");
     }
 }
