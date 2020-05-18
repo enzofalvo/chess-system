@@ -2,4 +2,6 @@
 ## 🚀 Running the project
 ### How to get started
 clone this repository, go to the source folder and start your terminal in the folder. Right after that, enter: "chess_system / Program" to run the program. Enjoy.
+
+
 ![Screenshot](https://github.com/Enzo-Falvo/chess_system/blob/master/print_chess.png)
